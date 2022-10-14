@@ -2,10 +2,26 @@ import { useState } from "react";
 
 function Input() {
   const [pay, setPay] = useState("");
+  const [sell, setSell] = useState("");
+  const [leasing, setLeasing] = useState("");
+  const [money, setMoney] = useState("");
+
+  const changeMoney = (event) => {
+    setMoney(event.target.value);
+  };
+
+  const changeLeasing = (event) => {
+    setLeasing(event.target.value);
+  };
+
   const changePay = (event) => {
     setPay(event.target.value);
-    const rub = () => {};
   };
+
+  const changeSell = (event) => {
+    setSell(event.target.value);
+  };
+
   for (let e of document.querySelectorAll(
     'input[type="range"].slider-progress'
   )) {
@@ -15,13 +31,13 @@ function Input() {
     e.addEventListener("input", () => e.style.setProperty("--value", e.value));
   }
   return (
-    <div class="container">
+    <div className="container">
       <h1 className="top">
         Рассчитайте стоимость
         <br /> автомобиля в лизинг
       </h1>
-      <div class="top"></div>
-      <div class="carPrice">
+      <div className="top"></div>
+      <div className="carPrice">
         <h2 className="car">Стоимость автомобиля</h2>
         <input
           type="range"
@@ -44,40 +60,48 @@ function Input() {
           />
         </div>
       </div>
-      <div class="cumContract">
+      <div className="cumContract">
         <h2 className="car">Первоначальный взнос</h2>
         <input
           type="range"
           id="input"
           className="in slider-progress"
-          onChange={changePay}
-          min={1000000}
-          max={6000000}
-          step={100000}
-          value={pay}
+          min={10}
+          max={60}
+          step={1}
+          value={money}
+          onChange={changeMoney}
         />
-        <span className="rub">₽</span>
+        <span className="rub1">
+          <input
+            type="number"
+            className="pro"
+            readonly
+            value={money}
+            onChange={changeMoney}
+          />
+        </span>
         <div>
           <input
             type="number"
             id="outInput"
             className="out"
-            value={pay}
-            onChange={changePay}
+            value={sell}
+            onChange={changeSell}
           />
         </div>
       </div>
-      <div class="initialCost">
+      <div className="initialCost">
         <h2 className="car">Срок лизинга</h2>
         <input
           type="range"
           id="input"
           className="in slider-progress"
-          onChange={changePay}
-          min={1000000}
-          max={6000000}
-          step={100000}
-          value={pay}
+          onChange={changeLeasing}
+          min={10}
+          max={60}
+          step={1}
+          value={leasing}
         />
         <span className="mes">мес.</span>
         <div>
@@ -85,33 +109,31 @@ function Input() {
             type="number"
             id="outInput"
             className="out"
-            value={pay}
-            onChange={changePay}
+            value={leasing}
+            onChange={changeLeasing}
           />
         </div>
       </div>
-      <div class="leaseTerm">
+      <div className="leaseTerm">
         <h2 className="car">Сумма договора лизинга</h2>
         <input
           type="number"
-          id="outInput"
-          className="out"
+          className="out1"
           value={pay}
           onChange={changePay}
         />
       </div>
-      <div class="monthPay">
-        <h2 className="car">ежемесячный платеж</h2>
+      <div className="monthPay">
+        <h2 className="car">Ежемесячный платеж</h2>
         <input
           type="number"
-          id="outInput"
-          className="out"
+          className="out1"
           value={pay}
           onChange={changePay}
         />
       </div>
-      <div class="button">
-        <button> оставить заявку</button>
+      <div className="button">
+        <button className="but"> оставить заявку</button>
       </div>
     </div>
 

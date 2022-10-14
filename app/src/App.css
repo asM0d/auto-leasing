@@ -16,6 +16,8 @@
 
 .carPrice {
   grid-area: carPrice;
+  margin-left: 47px;
+  margin-right: 38px;
 }
 
 .cumContract {
@@ -28,6 +30,8 @@
 
 .leaseTerm {
   grid-area: leaseTerm;
+  margin-left: 47px;
+  margin-right: 38px;
 }
 
 .monthPay {
@@ -70,8 +74,50 @@
   text-align: right;
   color: #575757;
 }
-button {
+
+.pro {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border: none;
+  position: absolute;
+  padding: 0;
+  width: 69px;
+  height: 54px;
+  right: 7px;
+  font-family: Nekst-Black;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 120%;
   text-align: center;
+  top: 221px;
+  left: 863px;
+  background: #ebebec;
+  border-radius: 16px;
+}
+
+.but {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  top: 385px;
+  position: absolute;
+  width: 426px;
+  height: 68px;
+  background: #ff9514;
+  border-radius: 40px;
+  outline: none;
+  border: none;
+  font-family: Nekst-Black;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 36px;
+  color: #ffffff;
 }
 
 .top {
@@ -141,18 +187,43 @@ button {
   color: #575757;
   box-sizing: border-box;
   padding: 24px;
+  background: #f3f3f4;
+  border-radius: 16px;
+  height: 68px;
+
   /*z-index: -1;*/
 }
+.out1 {
+  position: unset;
+  display: flex;
+  left: 24px;
+  right: 264px;
+  font-family: "Nekst-Black", serif;
+  font-style: normal;
+  font-weight: 900;
+  border: none;
+  font-size: 30px;
+  line-height: 36px;
+  width: 427px;
+  outline: none;
+  color: #575757;
+  box-sizing: border-box;
+  padding: 24px;
+  background-color: white;
+  /*z-index: -1;*/
+}
+
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-input[type="number"] {
+
+/* input[type="number"] {
   height: 68px;
   -webkit-appearance: none;
   background: #f3f3f4;
   border-radius: 16px;
-}
+} */
 
 .in {
   position: relative;
@@ -163,9 +234,6 @@ input[type="number"] {
   margin: -1px;
   width: 379px;
   top: 112px;
-}
-input[type="range"].in:focus {
-  outline: none;
 }
 
 /*input[type=number].out {*/
@@ -199,7 +267,12 @@ input[type="range"].in.slider-progress {
 input[type="range"].in:focus {
   outline: none;
 }
+
+input[type="range"].in:focus {
+  outline: none;
+}
 /*webkit*/
+
 input[type="range"].in::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 16px;
@@ -208,6 +281,7 @@ input[type="range"].in::-webkit-slider-thumb {
   background: #ff9514;
   border: none;
   margin-top: calc(max((1px - 1px - 1px) * 1) - 12px * 0.5);
+  z-index: 2;
 }
 
 input[type="range"].in::-webkit-slider-runnable-track {
